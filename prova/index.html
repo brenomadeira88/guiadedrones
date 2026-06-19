@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de Estudo — Prova Teórica ANAC | RBAC 100 & ICA 100-40</title>
+<meta name="description" content="Material de estudo para a prova teórica de piloto de drone da ANAC. Baseado no texto oficial do RBAC 100 e da ICA 100-40, explicado de forma direta.">
+<meta property="og:title" content="Guia de Estudo — Prova Teórica ANAC de Drone">
+<meta property="og:description" content="O que cai na nova prova da ANAC, explicado de forma direta. Baseado no RBAC 100 e na ICA 100-40.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A0B0D;
+    --ink-2:#101216;
+    --panel:#14171D;
+    --panel-2:#191D24;
+    --line:#262B33;
+    --line-soft:#1E222A;
+    --gold:#C9A24B;
+    --gold-bright:#E8C877;
+    --gold-deep:#8C6E2E;
+    --paper:#ECEAE3;
+    --paper-dim:#9CA3AD;
+    --paper-faint:#6B7280;
+    --sky:#5C8CA8;
+    --maxw:920px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--ink);color:var(--paper);
+    font-family:"DM Sans",system-ui,sans-serif;font-weight:400;line-height:1.62;font-size:17px;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:radial-gradient(120% 80% at 50% -10%, rgba(201,162,75,.10), transparent 60%);
+  }
+  .wrap{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+
+  .eyebrow{
+    font-family:"Bebas Neue",sans-serif;letter-spacing:.28em;font-size:.82rem;color:var(--gold);
+    text-transform:uppercase;display:inline-flex;align-items:center;gap:.6em;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold);display:inline-block;opacity:.7;}
+
+  /* HERO */
+  .hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;padding:90px 0 64px;position:relative;}
+  .hero::after{content:"";position:absolute;left:22px;right:22px;bottom:40px;height:1px;
+    background:linear-gradient(90deg,transparent,var(--line) 12%,var(--line) 88%,transparent);}
+  .hero .brandline{font-family:"Bebas Neue",sans-serif;letter-spacing:.22em;font-size:1rem;color:var(--paper-dim);text-transform:uppercase;margin-bottom:30px;}
+  .hero .brandline b{color:var(--gold);font-weight:400;}
+  .hero h1{font-family:"Bebas Neue",sans-serif;font-weight:400;font-size:clamp(3.4rem,12vw,7.2rem);line-height:.92;margin:0;letter-spacing:.005em;color:var(--paper);}
+  .hero h1 .accent{display:block;color:var(--gold);}
+  .hero .sub{margin-top:26px;max-width:32em;font-size:1.12rem;color:var(--paper-dim);font-family:"Montserrat",sans-serif;font-weight:400;}
+  .hero .sub em{font-family:"DM Serif Display",serif;font-style:italic;color:var(--paper);}
+  .stamp{margin-top:34px;display:inline-flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:2px;padding:9px 16px;
+    font-family:"Bebas Neue",sans-serif;letter-spacing:.16em;font-size:.8rem;color:var(--paper-dim);text-transform:uppercase;}
+  .stamp .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold);}
+
+  /* COURSE OFFER */
+  .offer{
+    position:relative;margin:6px 0 50px;border:1px solid var(--gold-deep);border-radius:8px;overflow:hidden;
+    background:linear-gradient(135deg,#16130C 0%,#1B160D 45%,#120F0A 100%);
+    padding:34px 30px;
+  }
+  .offer::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(80% 130% at 100% 0%, rgba(232,200,119,.16), transparent 60%);
+  }
+  .offer-in{position:relative;z-index:1;}
+  .offer .kicker{
+    font-family:"Bebas Neue",sans-serif;letter-spacing:.22em;font-size:.82rem;color:var(--gold-bright);
+    text-transform:uppercase;display:inline-flex;align-items:center;gap:.6em;margin-bottom:14px;
+  }
+  .offer .kicker::before{content:"";width:22px;height:1px;background:var(--gold-bright);display:inline-block;}
+  .offer h3{
+    font-family:"Bebas Neue",sans-serif;font-weight:400;font-size:clamp(1.9rem,6vw,2.9rem);line-height:.98;
+    margin:0 0 .35em;letter-spacing:.01em;color:var(--paper);
+  }
+  .offer h3 span{color:var(--gold);}
+  .offer p.lede{margin:0 0 20px;color:#D7D5CD;font-size:1.05rem;max-width:46em;}
+  .offer ul{list-style:none;margin:0 0 24px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 22px;max-width:46em;}
+  .offer li{position:relative;padding-left:24px;color:#E2E0D8;font-size:.98rem;line-height:1.45;}
+  .offer li::before{content:"";position:absolute;left:0;top:.55em;width:9px;height:9px;border-right:1.6px solid var(--gold);border-bottom:1.6px solid var(--gold);transform:rotate(45deg);}
+  .offer .btnrow{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+  .offer .btn{
+    display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#100D07;
+    font-family:"Bebas Neue",sans-serif;letter-spacing:.1em;font-size:1.15rem;text-transform:uppercase;
+    text-decoration:none;padding:13px 26px;border-radius:4px;transition:background .25s ease,transform .25s ease;
+  }
+  .offer .btn:hover{background:var(--gold-bright);transform:translateY(-2px);}
+  .offer .btn .a{font-size:1.2rem;}
+  .offer .urlnote{font-family:"DM Sans",sans-serif;color:var(--paper-dim);font-size:.9rem;letter-spacing:.02em;}
+
+  /* FACTS */
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:4px;overflow:hidden;margin:8px 0 56px;}
+  .fact{background:var(--ink-2);padding:22px 18px;}
+  .fact .n{font-family:"Bebas Neue",sans-serif;font-size:2.4rem;line-height:1;color:var(--gold-bright);letter-spacing:.02em;}
+  .fact .l{margin-top:6px;font-size:.82rem;color:var(--paper-dim);letter-spacing:.02em;}
+
+  /* SECTION */
+  .section{padding:30px 0;}
+  .section-head{margin-bottom:26px;}
+  .section-head h2{font-family:"Bebas Neue",sans-serif;font-weight:400;font-size:clamp(2rem,6vw,3rem);line-height:1;margin:.4em 0 0;letter-spacing:.01em;}
+  .section-head p{margin:.7em 0 0;color:var(--paper-dim);max-width:44em;font-family:"Montserrat",sans-serif;font-weight:400;}
+
+  /* PART DIVIDER */
+  .part{margin:54px 0 8px;padding:26px 0 8px;border-top:1px solid var(--line);}
+  .part .pk{font-family:"Bebas Neue",sans-serif;letter-spacing:.2em;color:var(--gold);font-size:.86rem;text-transform:uppercase;}
+  .part h2{font-family:"Bebas Neue",sans-serif;font-weight:400;font-size:clamp(2.1rem,7vw,3.4rem);line-height:.98;margin:.18em 0 0;}
+  .part h2 span{color:var(--paper-dim);}
+  .part p{margin:.7em 0 0;color:var(--paper-dim);max-width:44em;font-family:"Montserrat",sans-serif;font-weight:400;}
+
+  /* MODULE */
+  .module{position:relative;background:linear-gradient(180deg,var(--panel),var(--ink-2));border:1px solid var(--line-soft);border-radius:6px;padding:30px 28px 28px;margin-bottom:20px;overflow:hidden;}
+  .module::before{content:"";position:absolute;top:14px;right:14px;width:14px;height:14px;border-top:1.5px solid var(--gold);border-right:1.5px solid var(--gold);opacity:.55;}
+  .module .wp{display:flex;align-items:baseline;gap:14px;margin-bottom:14px;}
+  .module .wp .code{font-family:"Bebas Neue",sans-serif;font-size:1.9rem;line-height:1;color:var(--gold);letter-spacing:.06em;flex:none;}
+  .module h3{font-family:"DM Sans",sans-serif;font-weight:700;font-size:1.28rem;margin:0;line-height:1.2;letter-spacing:-.01em;}
+  .module p{margin:.55em 0;color:#D7D5CD;}
+  .module strong{color:var(--paper);font-weight:700;}
+  .module .term{color:var(--gold-bright);font-weight:500;}
+
+  .deflist{margin:14px 0 4px;border-top:1px solid var(--line-soft);}
+  .deflist .row{display:grid;grid-template-columns:130px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid var(--line-soft);}
+  .deflist .k{font-family:"Bebas Neue",sans-serif;letter-spacing:.07em;color:var(--gold);font-size:1.05rem;line-height:1.3;}
+  .deflist .v{color:#D7D5CD;font-size:.98rem;}
+  .deflist .v small{color:var(--paper-faint);}
+
+  .focus{margin-top:18px;background:rgba(201,162,75,.07);border-left:2px solid var(--gold);border-radius:0 4px 4px 0;padding:14px 16px;}
+  .focus .tag{font-family:"Bebas Neue",sans-serif;letter-spacing:.18em;font-size:.78rem;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:5px;}
+  .focus p{margin:0;color:#E2E0D8;font-size:.97rem;}
+
+  .pull{margin:40px 0;padding:30px 26px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .pull blockquote{margin:0;font-family:"DM Serif Display",serif;font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.25;color:var(--paper);}
+  .pull blockquote span{color:var(--gold);font-style:italic;}
+  .pull .by{margin-top:14px;font-family:"Bebas Neue",sans-serif;letter-spacing:.16em;color:var(--paper-dim);font-size:.85rem;text-transform:uppercase;}
+
+  .tips{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .tip{background:var(--panel);border:1px solid var(--line-soft);border-radius:6px;padding:22px 20px;}
+  .tip .num{font-family:"Bebas Neue",sans-serif;color:var(--gold);font-size:1.3rem;letter-spacing:.06em;}
+  .tip h4{margin:.3em 0 .4em;font-size:1.05rem;font-weight:700;}
+  .tip p{margin:0;color:var(--paper-dim);font-size:.95rem;}
+
+  .links{display:grid;gap:12px;}
+  .lk{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--panel);border:1px solid var(--line-soft);border-radius:6px;padding:18px 20px;text-decoration:none;color:var(--paper);transition:border-color .25s ease,transform .25s ease,background .25s ease;}
+  .lk:hover{border-color:var(--gold-deep);background:var(--panel-2);transform:translateX(3px);}
+  .lk .lk-main{min-width:0;}
+  .lk .lk-name{font-weight:700;font-size:1.02rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .lk .lk-url{color:var(--paper-faint);font-size:.86rem;word-break:break-all;margin-top:2px;}
+  .lk .lk-desc{color:var(--paper-dim);font-size:.9rem;margin-top:5px;}
+  .badge{font-family:"Bebas Neue",sans-serif;letter-spacing:.1em;font-size:.7rem;padding:2px 8px;border-radius:3px;text-transform:uppercase;flex:none;}
+  .badge.off{background:rgba(92,140,168,.15);color:var(--sky);border:1px solid rgba(92,140,168,.4);}
+  .badge.gold{background:rgba(201,162,75,.14);color:var(--gold-bright);border:1px solid var(--gold-deep);}
+  .lk .arrow{font-family:"Bebas Neue",sans-serif;color:var(--gold);font-size:1.4rem;flex:none;}
+
+  .note{margin-top:26px;background:var(--ink-2);border:1px dashed var(--line);border-radius:6px;padding:18px 20px;color:var(--paper-dim);font-size:.92rem;}
+  .note b{color:var(--gold);}
+
+  .cta{margin:70px 0 0;text-align:center;padding:54px 26px 60px;border-top:1px solid var(--line);background:radial-gradient(90% 120% at 50% 0%, rgba(201,162,75,.08), transparent 70%);}
+  .cta h2{font-family:"Bebas Neue",sans-serif;font-weight:400;font-size:clamp(2rem,7vw,3.4rem);line-height:1;margin:.2em 0;}
+  .cta h2 .accent{color:var(--gold);}
+  .cta p{color:var(--paper-dim);max-width:32em;margin:.6em auto 0;}
+  .cta .brand{margin-top:30px;font-family:"Bebas Neue",sans-serif;letter-spacing:.2em;font-size:1rem;color:var(--paper);text-transform:uppercase;}
+  .cta .brand b{color:var(--gold);font-weight:400;}
+  .cta .handle{color:var(--paper-dim);font-size:.92rem;margin-top:6px;letter-spacing:.04em;}
+
+  footer.fine{text-align:center;color:var(--paper-faint);font-size:.8rem;padding:26px 22px 40px;line-height:1.7;}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media (max-width:640px){
+    body{font-size:16px;}
+    .facts{grid-template-columns:1fr 1fr;}
+    .tips{grid-template-columns:1fr;}
+    .deflist .row{grid-template-columns:95px 1fr;gap:10px;}
+    .hero{min-height:82vh;padding:70px 0 50px;}
+    .lk{flex-wrap:wrap;}
+    .offer{padding:28px 22px;}
+    .offer ul{grid-template-columns:1fr;}
+    .offer .btn{width:100%;justify-content:center;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="brandline">Guia de Drones · <b>BM Outdoor Films</b></div>
+    <div class="eyebrow">Material de Estudo</div>
+    <h1>Prova Teórica<span class="accent">da ANAC</span></h1>
+    <p class="sub">Tudo o que cai na avaliação de piloto de drone — baseado no texto oficial do <em>RBAC&nbsp;100</em> e da <em>ICA&nbsp;100-40</em>, explicado do jeito de quem voa de verdade.</p>
+    <div class="stamp"><span class="dot"></span> Regulamentação 2026 · Fontes oficiais</div>
+  </div>
+</header>
+
+<!-- COURSE OFFER -->
+<section class="wrap">
+  <div class="offer reveal">
+    <div class="offer-in">
+      <span class="kicker">Curso de Drones · Breno Madeira</span>
+      <h3>Passar na prova é o mínimo.<br><span>Voar como profissional</span> é o objetivo.</h3>
+      <p class="lede">A teoria te coloca no ar dentro da lei. O meu curso te ensina a transformar cada voo em imagem que prende o olhar — do primeiro decolar até o post no feed.</p>
+      <ul>
+        <li>Voe com <strong>segurança e confiança</strong>, sem medo de errar</li>
+        <li>Domine os <strong>movimentos cinematográficos</strong> que dão um ar de cinema</li>
+        <li>Aprenda a <strong>editar</strong> do jeito certo, do bruto ao corte final</li>
+        <li>Poste nas redes <strong>sem perder qualidade</strong> de imagem</li>
+      </ul>
+      <div class="btnrow">
+        <a class="btn" href="https://www.comopilotardrone.com.br" target="_blank" rel="noopener">Quero pilotar como profissional <span class="a">↗</span></a>
+        <span class="urlnote">comopilotardrone.com.br</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACTS -->
+<section class="wrap">
+  <div class="facts reveal">
+    <div class="fact"><div class="n">20</div><div class="l">questões objetivas</div></div>
+    <div class="fact"><div class="n">Online</div><div class="l">portal da ANAC</div></div>
+    <div class="fact"><div class="n">Grátis</div><div class="l">sem custo</div></div>
+    <div class="fact"><div class="n">Certificado</div><div class="l">ao ser aprovado</div></div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="section wrap">
+  <div class="section-head reveal">
+    <div class="eyebrow">O que mudou</div>
+    <h2>Duas normas, dois papéis</h2>
+    <p>Em 2026 a regulamentação de drones foi reescrita. Quem estuda pra prova precisa entender que <strong>duas normas</strong> trabalham juntas, mas tratam de coisas diferentes — e confundir os papéis é o erro nº 1 de quem está começando:</p>
+  </div>
+  <div class="module reveal">
+    <div class="deflist" style="border-top:none;">
+      <div class="row"><div class="k">RBAC 100</div><div class="v"><strong>ANAC</strong> · Resolução nº 805, de 15/06/2026. Cuida da <strong>aeronave e do piloto</strong>: categorias, responsabilidade e a prova teórica.</div></div>
+      <div class="row"><div class="k">ICA 100-40</div><div class="v"><strong>DECEA</strong> · Portaria nº 2.094/DNOR8, em vigor desde <strong>1º/07/2026</strong>. Cuida do <strong>acesso ao espaço aéreo</strong>: onde, quando e como voar (SARPAS).</div></div>
+    </div>
+    <div class="focus"><span class="tag">Regra de ouro</span><p>ANAC regula <strong>quem voa e o quê</strong>. DECEA autoriza <strong>onde e quando</strong>. A prova vive testando se você sabe separar os dois.</p></div>
+  </div>
+</section>
+
+<!-- ============ PARTE 1 — RBAC 100 ============ -->
+<section class="wrap">
+  <div class="part reveal">
+    <div class="pk">Parte 1 · ANAC</div>
+    <h2>RBAC 100 <span>— a aeronave e o piloto</span></h2>
+    <p>O RBAC 100 substituiu o antigo RBAC-E nº 94 e trocou a classificação <em>por peso</em> pela classificação <strong>por risco da operação</strong>. É a base da maioria das questões.</p>
+  </div>
+
+  <!-- 01 -->
+  <article class="module reveal">
+    <div class="wp"><span class="code">01</span><h3>A quem o RBAC 100 se aplica</h3></div>
+    <p>Antes de tudo: nem todo drone está no RBAC 100. A própria norma tira duas situações do seu escopo.</p>
+    <div class="deflist">
+      <div class="row"><div class="k">Está dentro</div><div class="v">UA de uso civil cadastradas na ANAC ou operando em território brasileiro.</div></div>
+      <div class="row"><div class="k">Fora — recreativo</div><div class="v">Aeromodelos de uso recreativo até <strong>120 m AGL</strong> em VLOS ou EVLOS.</div></div>
+      <div class="row"><div class="k">Fora — sub-250g</div><div class="v">UA de até <strong>250 g</strong> até 120 m AGL em VLOS/EVLOS (e balões livres). Têm resolução própria.</div></div>
+    </div>
+    <div class="focus"><span class="tag">Foco na prova</span><p>Saber o que <strong>não</strong> está no RBAC 100 é tão importante quanto o que está. Recreativo e sub-250g (até 120 m, em visada) ficam fora — mas atenção: ainda respondem ao DECEA (Parte 2).</p></div>
+  </article>
+
+  <!-- 02 -->
+  <article class="module reveal">
+    <div class="wp"><span class="code">02</span><h3>As três categorias de operação</h3></div>
+    <p>O risco da operação define a categoria — não o peso do equipamento. <span class="term">O mesmo drone</span> muda de categoria conforme onde e como você voa.</p>
+    <div class="deflist">
+      <div class="row"><div class="k">Aberta</div><div class="v">Baixo risco. Cumpre todos os limites (módulo 03). É onde fica a maioria.</div></div>
+      <div class="row"><div class="k">Específica</div><div class="v">Quando <strong>qualquer</strong> limite da Aberta não é atendido. Exige cenário padrão ou autorização da ANAC.</div></div>
+      <div class="row"><div class="k">Certificada</div><div class="v">Transporte de artigos perigosos de alto risco, ou risco que só a certificação resolve. Exige Certificado de Tipo.</div></div>
+    </div>
+    <div class="focus"><span class="tag">Foco na prova</span><p>Decore a lógica: <strong>basta furar um critério da Aberta</strong> pra cair na Específica. É a espinha dorsal do RBAC 100.</p></div>
+  </article>
+
+  <!-- 03 -->
+  <article class="module reveal">
+    <div class="wp"><span class="code">03</span><h3>Categoria Aberta a fundo</h3></div>
+    <p>Se você voa um Mini, Air ou Mavic pra foto e vídeo, quase certamente está aqui. São <strong>cinco condições</strong> — e a quinta muita gente nem sabe que existe.</p>
+    <div class="deflist">
+      <div class="row"><div class="k">Peso</div><div class="v">Peso em voo até <strong>25 kg</strong>.</div></div>
+      <div class="row"><div class="k">Altura</div><div class="v">Até <strong>120 m (400 ft) AGL</strong>.</div></div>
+      <div class="row"><div class="k">Visada</div><div class="v">Em <strong>VLOS ou EVLOS</strong>.</div></div>
+      <div class="row"><div class="k">Pessoas</div><div class="v">Área distante de terceiros — <strong>nunca menos de 30 m</strong> de pessoas não envolvidas e não anuentes (salvo barreira física).</div></div>
+      <div class="row"><div class="k">Avaliação de risco</div><div class="v">Deve haver avaliação de risco operacional (atualizada nos últimos 12 meses). <small>Dispensada se a operação ficar a mais de 150 m de pessoas não envolvidas ou houver barreira mecânica.</small></div></div>
+    </div>
+    <div class="focus"><span class="tag">Foco na prova</span><p>As questões trazem cenários (“drone de X kg, a Y m, em tal área”). Treine bater cada um contra esses limites. Guarde os números <strong>30 m</strong> (distância mínima de pessoas) e <strong>120 m</strong> (altura).</p></div>
+  </article>
+
+  <!-- 04 -->
+  <article class="module reveal">
+    <div class="wp"><span class="code">04</span><h3>Quem responde — operador e piloto</h3></div>
+    <p>Esse é o coração da prova. A norma é cristalina sobre autoridade e responsabilidade.</p>
+    <div class="deflist">
+      <div class="row"><div class="k">Operador</div><div class="v">Responsável pelo <strong>controle operacional</strong>. O piloto remoto é seu preposto.</div></div>
+      <div class="row"><div class="k">Piloto em comando</div><div class="v">Diretamente responsável pela condução segura, pelas consequências, e tem a <strong>autoridade final</strong> sobre a operação.</div></div>
+      <div class="row"><div class="k">Exame teórico</div><div class="v">Todo piloto remoto deve ter sido <strong>aprovado em exame de conhecimento teórico da ANAC</strong>. <small>(É a base legal da prova.)</small></div></div>
+      <div class="row"><div class="k">Menor de 18</div><div class="v">Pode operar, mas <strong>acompanhado</strong> o tempo todo por piloto remoto maior de 18, responsável pela operação.</div></div>
+    </div>
+    <div class="focus"><span class="tag">Foco na prova</span><p>“Autoridade final” é do <strong>piloto remoto em comando</strong> — não do dono do equipamento. Essa distinção cai com frequência.</p></div>
+  </article>
+
+  <!-- 05 -->
+  <article class="module reveal">
+    <div class="wp"><span class="code">05</span><h3>Regras gerais de operação</h3></div>
+    <p>Um conjunto de proibições e deveres que valem pra qualquer voo.</p>
+    <div class="deflist">
+      <div class="row"><div class="k">Transporte</div><div class="v">Proibido transportar <strong>pessoas, animais</strong> ou artigos perigosos — salvo exceções previstas (ex.: agricultura, baterias dos próprios equipamentos).</div></div>
+      <div class="row"><div class="k">Intervenção</div><div class="v">Na operação normal, deve ser <strong>possível o piloto intervir em qualquer fase do voo</strong>.</div></div>
+      <div class="row"><div class="k">Negligência</div><div class="v">Vedado operar de maneira <strong>descuidada ou negligente</strong>, pondo em risco pessoas ou bens.</div></div>
+      <div class="row"><div class="k">Um por vez</div><div class="v">Um piloto remoto só pode operar <strong>uma UA por vez</strong> (salvo autorização da ANAC).</div></div>
+    </div>
+    <div class="focus"><span class="tag">Foco na prova</span><p>Cuidado com a pegadinha da autonomia: operação <strong>automatizada</strong> (piloto pode assumir) é permitida; operação <strong>autônoma</strong> (sem possibilidade de intervir) não é.</p></div>
+  </article>
+
+  <!-- 06 -->
+  <article class="module reveal">
+    <div class="wp"><span class="code">06</span><h3>Pré-voo, autonomia e seguro</h3></div>
+    <p>O que a norma exige antes de decolar — e a parte do seguro que confunde todo mundo.</p>
+    <div class="deflist">
+      <div class="row"><div class="k">Pré-voo</div><div class="v">O piloto deve tomar <strong>ciência de todas as informações</strong> necessárias ao planejamento do voo.</div></div>
+      <div class="row"><div class="k">Autonomia</div><div class="v">Só iniciar se houver autonomia suficiente — considerando <strong>vento e meteorologia</strong> — para voar e pousar com segurança.</div></div>
+      <div class="row"><div class="k">Seguro</div><div class="v">Toda operação deve ter <strong>seguro de danos a terceiros</strong>, salvo entidades do Estado e certas operações agrícolas.</div></div>
+    </div>
+    <div class="focus"><span class="tag">Foco na prova</span><p>Avaliação e planejamento são sempre <strong>antes do voo</strong> — antecipar, não remediar. E conhecer as limitações do equipamento é o que evita voar além do que ele aguenta.</p></div>
+  </article>
+</section>
+
+<!-- ============ PARTE 2 — ICA 100-40 ============ -->
+<section class="wrap">
+  <div class="part reveal">
+    <div class="pk">Parte 2 · DECEA</div>
+    <h2>ICA 100-40 <span>— o espaço aéreo</span></h2>
+    <p>Estar regular na ANAC não basta: pra ocupar o céu, você precisa do DECEA. A ICA 100-40 define como acessar o espaço aéreo brasileiro — e vale, inclusive, pro sub-250g.</p>
+  </div>
+
+  <!-- 07 -->
+  <article class="module reveal">
+    <div class="wp"><span class="code">07</span><h3>Acesso ao espaço aéreo & SARPAS</h3></div>
+    <p>A regra-mãe do DECEA: <strong>nenhuma UA acessa o espaço aéreo brasileiro sem autorização do Estado</strong>. O canal oficial é o <span class="term">SARPAS</span>.</p>
+    <div class="deflist">
+      <div class="row"><div class="k">SARPAS</div><div class="v">Sistema onde se solicita o acesso ao espaço aéreo. Cadastro pelo login <strong>gov.br</strong>.</div></div>
+      <div class="row"><div class="k">Sub-250g</div><div class="v">A exigência de autorização <strong>vale inclusive para UA de até 250 g</strong>. Aqui ninguém fica de fora.</div></div>
+      <div class="row"><div class="k">SISANT ↔ SARPAS</div><div class="v">A UA cadastrada no SISANT (ANAC) é <strong>sincronizada</strong> com o SARPAS. Por isso, na prática, você precisa do cadastro pra solicitar voo.</div></div>
+      <div class="row"><div class="k">UA autônoma</div><div class="v">UA totalmente autônoma <strong>não é autorizada</strong> a acessar o espaço aéreo.</div></div>
+    </div>
+    <div class="focus"><span class="tag">Foco na prova</span><p>O sub-250g sai do RBAC 100, mas <strong>não escapa do DECEA</strong>. Esse é o ponto que mais derruba candidato — e a razão prática de cadastrar até drone leve.</p></div>
+  </article>
+
+  <!-- 08 -->
+  <article class="module reveal">
+    <div class="wp"><span class="code">08</span><h3>Linha de visada & observador</h3></div>
+    <p>Manter o drone na linha de visada permite <strong>observar a aeronave e evitar colisões</strong>. As três siglas caem direto — e o papel do observador é uma pegadinha clássica.</p>
+    <div class="deflist">
+      <div class="row"><div class="k">VLOS</div><div class="v">Contato visual direto com a UA, a olho nu (só lentes corretivas valem).</div></div>
+      <div class="row"><div class="k">EVLOS</div><div class="v">Visada estendida com apoio de <strong>observador de UA</strong>, seguindo as mesmas regras do VLOS.</div></div>
+      <div class="row"><div class="k">BVLOS</div><div class="v">Além da linha de visada. Não cabe na Aberta; exige segregação de espaço aéreo.</div></div>
+      <div class="row"><div class="k">Observador</div><div class="v">Obrigatório ao usar <strong>óculos FPV</strong> ou em VLOS estendida. Sem ele, vira BVLOS.</div></div>
+    </div>
+    <div class="focus"><span class="tag">Foco na prova</span><p>Grave: <strong>óculos FPV sem observador = BVLOS</strong>. E o piloto em VLOS é sempre o responsável por se separar de obstáculos e outras aeronaves.</p></div>
+  </article>
+
+  <!-- 09 -->
+  <article class="module reveal">
+    <div class="wp"><span class="code">09</span><h3>Estrutura do espaço aéreo</h3></div>
+    <p>O espaço aéreo <strong>não é homogêneo</strong>: há zonas com regras e riscos distintos. Conhecer as siglas evita voar onde não pode.</p>
+    <div class="deflist">
+      <div class="row"><div class="k">EAC</div><div class="v">Espaço Aéreo Condicionado — inclui áreas perigosas, proibidas e restritas (TRA, TSA).</div></div>
+      <div class="row"><div class="k">FRZ</div><div class="v">Zona de Restrição de Voo — em aeroportos, helipontos e áreas de segurança.</div></div>
+      <div class="row"><div class="k">Áreas</div><div class="v"><strong>Proibida</strong> (voo vedado), <strong>restrita</strong> (condições) e <strong>perigosa</strong> (risco; o piloto decide se aceita).</div></div>
+      <div class="row"><div class="k">Segregação</div><div class="v">Exigida para <strong>BVLOS</strong>, voos <strong>acima de 120 m</strong> e UA <strong>acima de 25 kg</strong>.</div></div>
+      <div class="row"><div class="k">Área confinada</div><div class="v">Voo dentro de local fechado <strong>não é espaço aéreo</strong> — não é responsabilidade do DECEA.</div></div>
+    </div>
+    <div class="focus"><span class="tag">Foco na prova</span><p>Entenda <strong>por que</strong> o espaço aéreo não é igual em todo lugar: regiões diferentes têm tráfego e risco diferentes. É quase sempre a alternativa correta.</p></div>
+  </article>
+
+  <!-- 10 -->
+  <article class="module reveal">
+    <div class="wp"><span class="code">10</span><h3>Limites por tipo de operação</h3></div>
+    <p>Os números do DECEA. Atenção: o limite recreativo é <strong>diferente</strong> (e menor) que o da categoria aberta.</p>
+    <div class="deflist">
+      <div class="row"><div class="k">Aberta (DECEA)</div><div class="v">≤ 25 kg · VLOS · até <strong>120 m AGL</strong> · sem interseção com EAC ou FRZ.</div></div>
+      <div class="row"><div class="k">Recreativa</div><div class="v">Até <strong>60 m (200 ft) AGL</strong> e distância horizontal máxima de <strong>300 m</strong>.</div></div>
+      <div class="row"><div class="k">Antecedência</div><div class="v">Solicitação no SARPAS: <strong>30 min</strong> (aberta), até <strong>4</strong> ou <strong>8 dias</strong> conforme o risco.</div></div>
+      <div class="row"><div class="k">Fraseologia</div><div class="v">Use “<strong>RPA</strong>” antes do código de chamada quando exigida comunicação bilateral.</div></div>
+    </div>
+    <div class="focus"><span class="tag">Foco na prova</span><p>Não troque os números: <strong>120 m</strong> é o teto da Aberta; <strong>60 m / 300 m</strong> são os limites do voo recreativo no espaço aéreo.</p></div>
+  </article>
+
+  <!-- 11 -->
+  <article class="module reveal">
+    <div class="wp"><span class="code">11</span><h3>Segurança operacional & emergência</h3></div>
+    <p>O planejamento do voo e o que fazer quando algo dá errado.</p>
+    <div class="deflist">
+      <div class="row"><div class="k">Planejamento</div><div class="v">Avaliar restrições do espaço aéreo, coordenação, <strong>meteorologia</strong>, autonomia da bateria, plano alternativo e produtos AIS.</div></div>
+      <div class="row"><div class="k">Meteorologia</div><div class="v">Não operar sob <strong>chuva, vento, nevoeiro</strong> ou qualquer condição que ponha o voo em risco.</div></div>
+      <div class="row"><div class="k">Terminação de voo</div><div class="v">Ter um <strong>plano de terminação de voo</strong> e conhecer o RTH e os procedimentos do manual.</div></div>
+      <div class="row"><div class="k">Fly-away</div><div class="v">Em perda de controle (fly-away), <strong>notificar imediatamente o Tático SARPAS</strong>.</div></div>
+    </div>
+    <div class="focus"><span class="tag">Foco na prova</span><p>Clima afeta <strong>vários</strong> fatores (bateria, estabilidade, visibilidade) — não só um. Em questão de clima ou emergência, a resposta certa é a mais <strong>cautelosa</strong>.</p></div>
+  </article>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="wrap">
+  <div class="pull reveal">
+    <blockquote>Drone <span>não é brinquedo</span> — é uma aeronave. E o que mais faz diferença lá em cima é uma coisa que prova nenhuma cobra direto: <span>bom senso</span>.</blockquote>
+    <div class="by">Breno Madeira · BM Outdoor Films</div>
+  </div>
+</section>
+
+<!-- STUDY TIPS -->
+<section class="section wrap">
+  <div class="section-head reveal">
+    <div class="eyebrow">Como estudar</div>
+    <h2>Plano de voo pro estudo</h2>
+    <p>Não precisa decorar tudo. Precisa entender a lógica das duas normas. Siga esta sequência.</p>
+  </div>
+  <div class="tips">
+    <div class="tip reveal"><div class="num">01</div><h4>Separe ANAC de DECEA</h4><p>Antes de tudo, fixe quem faz o quê: aeronave e piloto (RBAC 100) versus espaço aéreo (ICA 100-40). Metade das pegadinhas mora aí.</p></div>
+    <div class="tip reveal"><div class="num">02</div><h4>Grave os números</h4><p>25 kg, 120 m, 30 m de pessoas, 60 m / 300 m no recreativo. Números exatos rendem acertos fáceis.</p></div>
+    <div class="tip reveal"><div class="num">03</div><h4>Pense em cenários</h4><p>Muita questão é situação prática. Treine encaixar “drone X, altura Y, área Z” na categoria certa.</p></div>
+    <div class="tip reveal"><div class="num">04</div><h4>Leia a fonte oficial</h4><p>Os textos do RBAC 100 e da ICA 100-40 são a origem de cada questão. Bater o olho neles vale mais que mil resumos.</p></div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section class="section wrap">
+  <div class="section-head reveal">
+    <div class="eyebrow">Onde estudar</div>
+    <h2>Links que valem a pena</h2>
+    <p>Comece pelas fontes oficiais — todas gratuitas e base de tudo que cai.</p>
+  </div>
+  <div class="links">
+    <a class="lk reveal" href="https://capacitacao.anac.gov.br" target="_blank" rel="noopener">
+      <div class="lk-main">
+        <div class="lk-name">Portal de Capacitação da ANAC <span class="badge gold">A prova</span></div>
+        <div class="lk-url">capacitacao.anac.gov.br</div>
+        <div class="lk-desc">Onde a avaliação teórica é aplicada e o certificado é emitido.</div>
+      </div><span class="arrow">↗</span>
+    </a>
+    <a class="lk reveal" href="https://www.gov.br/anac/pt-br/assuntos/drones" target="_blank" rel="noopener">
+      <div class="lk-main">
+        <div class="lk-name">RBAC 100 — Página de Drones da ANAC <span class="badge off">Oficial</span></div>
+        <div class="lk-url">gov.br/anac/pt-br/assuntos/drones</div>
+        <div class="lk-desc">Texto do RBAC 100 (Resolução nº 805/2026) e a resolução do sub-250g.</div>
+      </div><span class="arrow">↗</span>
+    </a>
+    <a class="lk reveal" href="https://www.decea.mil.br/drone/" target="_blank" rel="noopener">
+      <div class="lk-main">
+        <div class="lk-name">ICA 100-40 — DECEA <span class="badge off">Oficial</span></div>
+        <div class="lk-url">decea.mil.br/drone</div>
+        <div class="lk-desc">Regras de acesso ao espaço aéreo, cadastro e procedimentos do DECEA.</div>
+      </div><span class="arrow">↗</span>
+    </a>
+    <a class="lk reveal" href="https://servicos.decea.mil.br/sarpas/" target="_blank" rel="noopener">
+      <div class="lk-main">
+        <div class="lk-name">SARPAS — Solicitação de voo <span class="badge off">Oficial</span></div>
+        <div class="lk-url">servicos.decea.mil.br/sarpas</div>
+        <div class="lk-desc">Onde você solicita a autorização de acesso ao espaço aéreo.</div>
+      </div><span class="arrow">↗</span>
+    </a>
+    <a class="lk reveal" href="https://sistemas.anac.gov.br/sisant" target="_blank" rel="noopener">
+      <div class="lk-main">
+        <div class="lk-name">SISANT — Cadastro de drone <span class="badge off">Oficial</span></div>
+        <div class="lk-url">sistemas.anac.gov.br/sisant</div>
+        <div class="lk-desc">Cadastro da aeronave na ANAC. Login pelo gov.br.</div>
+      </div><span class="arrow">↗</span>
+    </a>
+    <a class="lk reveal" href="https://www.guiadedrones.com.br" target="_blank" rel="noopener">
+      <div class="lk-main">
+        <div class="lk-name">Guia de Drones <span class="badge gold">Recomendado</span></div>
+        <div class="lk-url">guiadedrones.com.br</div>
+        <div class="lk-desc">Conteúdo, comparativos e indicações pra quem está começando — feito por quem voa.</div>
+      </div><span class="arrow">↗</span>
+    </a>
+  </div>
+
+  <div class="note reveal">
+    <b>Sobre simulado:</b> como a prova de drone é recente, ainda não há um simulado consolidado só do RBAC 100. Apps como o <strong>Simulados ANAC</strong> ajudam a treinar o formato da banca, mas o melhor treino hoje é o próprio Portal de Capacitação. Fique de olho — um simulado dedicado a drone deve aparecer em breve.<br><br>
+    <b>Importante:</b> este material é um resumo de estudo baseado no texto oficial do <strong>RBAC 100 (Resolução nº 805, de 15/06/2026)</strong> e da <strong>ICA 100-40 (Portaria DECEA nº 2.094/DNOR8, vigente desde 1º/07/2026)</strong>. Não substitui a leitura das normas. Em caso de dúvida, vale sempre o texto oficial da ANAC e do DECEA.
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="eyebrow" style="justify-content:center;">Próximo passo</div>
+  <h2>Voe do jeito <span class="accent">certo</span></h2>
+  <p>Estudar pra prova é o começo. Saber tirar o melhor do seu drone — com movimentos cinematográficos e, acima de tudo, segurança — é o que separa o piloto do profissional.</p>
+  <div class="brand"><b>BM</b> Outdoor Films</div>
+  <div class="handle">@brenomadeira · bmoutdoorfilms.com.br</div>
+</section>
+
+<footer class="fine">
+  Material de estudo informativo, baseado no RBAC 100 e na ICA 100-40.<br>Não substitui a leitura das normas oficiais da ANAC e do DECEA.
+</footer>
+
+<script>
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in');}); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    },{threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(e){io.observe(e);});
+  })();
+</script>
+</body>
+</html>

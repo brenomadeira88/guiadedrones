@@ -95,6 +95,14 @@
   .offer .btn .a{font-size:1.2rem;}
   .offer .urlnote{font-family:"DM Sans",sans-serif;color:var(--paper-dim);font-size:.9rem;letter-spacing:.02em;}
 
+  /* GLOSSARY */
+  .glossary{position:relative;background:linear-gradient(180deg,var(--panel),var(--ink-2));border:1px solid var(--line-soft);border-radius:6px;padding:26px 26px 22px;overflow:hidden;}
+  .glossary::before{content:"";position:absolute;top:14px;right:14px;width:14px;height:14px;border-top:1.5px solid var(--gold);border-right:1.5px solid var(--gold);opacity:.55;}
+  .gl-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:5px;overflow:hidden;}
+  .gl{background:var(--ink-2);padding:14px 16px;display:flex;gap:14px;align-items:baseline;}
+  .gl .sig{font-family:"Bebas Neue",sans-serif;font-size:1.5rem;line-height:1;color:var(--gold);letter-spacing:.04em;flex:none;min-width:86px;}
+  .gl .mean{font-family:"Montserrat",sans-serif;font-size:.9rem;color:#D7D5CD;line-height:1.38;}
+
   /* FACTS */
   .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:4px;overflow:hidden;margin:8px 0 56px;}
   .fact{background:var(--ink-2);padding:22px 18px;}
@@ -183,6 +191,8 @@
     .offer{padding:28px 22px;}
     .offer ul{grid-template-columns:1fr;}
     .offer .btn{width:100%;justify-content:center;}
+    .gl-grid{grid-template-columns:1fr;}
+    .gl .sig{min-width:74px;}
   }
   @media (prefers-reduced-motion:reduce){
     .reveal{opacity:1;transform:none;transition:none;}
@@ -211,15 +221,44 @@
       <h3>Passar na prova é o mínimo.<br><span>Voar como profissional</span> é o objetivo.</h3>
       <p class="lede">A teoria te coloca no ar dentro da lei. O meu curso te ensina a transformar cada voo em imagem que prende o olhar — do primeiro decolar até o post no feed.</p>
       <ul>
-        <li>Voe com <strong>segurança e confiança</strong>, sem medo de errar</li>
-        <li>Domine os <strong>movimentos cinematográficos</strong> que dão um ar de cinema</li>
-        <li>Aprenda a <strong>editar</strong> do jeito certo, do bruto ao corte final</li>
-        <li>Poste nas redes <strong>sem perder qualidade</strong> de imagem</li>
+        <li>Voe com <strong>segurança e confiança</strong>, sem medo de perder o drone</li>
+        <li>Domine os <strong>movimentos cinematográficos</strong> pra fazer vídeos bonitos</li>
+        <li>Aprenda a <strong>editar e postar</strong> nas redes sem perder qualidade de imagem</li>
+        <li>Aprenda também <strong>modo FPV</strong> e todos os modos do seu drone</li>
       </ul>
       <div class="btnrow">
         <a class="btn" href="https://www.comopilotardrone.com.br" target="_blank" rel="noopener">Quero pilotar como profissional <span class="a">↗</span></a>
         <span class="urlnote">comopilotardrone.com.br</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- GLOSSARY -->
+<section class="section wrap">
+  <div class="section-head reveal">
+    <div class="eyebrow">Antes de começar</div>
+    <h2>Sobre a certificação ANAC</h2>
+    <p>As siglas que mais aparecem no RBAC 100 e na ICA 100-40. Decorar esse vocabulário deixa boa parte da prova mais fácil.</p>
+  </div>
+  <div class="glossary reveal">
+    <div class="gl-grid">
+      <div class="gl"><span class="sig">UA</span><span class="mean">Aeronave Não Tripulada — o drone em si.</span></div>
+      <div class="gl"><span class="sig">UAS</span><span class="mean">Sistema de Aeronave Não Tripulada — drone + controle + enlace.</span></div>
+      <div class="gl"><span class="sig">RPA</span><span class="mean">Aeronave Pilotada Remotamente — termo usado na fraseologia de rádio.</span></div>
+      <div class="gl"><span class="sig">AGL</span><span class="mean">Above Ground Level — altura acima do nível do solo.</span></div>
+      <div class="gl"><span class="sig">PMD</span><span class="mean">Peso Máximo de Decolagem, com cargas e acessórios.</span></div>
+      <div class="gl"><span class="sig">VLOS</span><span class="mean">Linha de visada visual — você enxerga o drone a olho nu.</span></div>
+      <div class="gl"><span class="sig">EVLOS</span><span class="mean">Visada estendida — com apoio de um observador de UA.</span></div>
+      <div class="gl"><span class="sig">BVLOS</span><span class="mean">Além da linha de visada — exige autorização especial.</span></div>
+      <div class="gl"><span class="sig">SORA</span><span class="mean">Metodologia de avaliação de risco da operação específica.</span></div>
+      <div class="gl"><span class="sig">SARPAS</span><span class="mean">Sistema do DECEA para solicitar acesso ao espaço aéreo.</span></div>
+      <div class="gl"><span class="sig">SISANT</span><span class="mean">Sistema da ANAC onde a aeronave é cadastrada.</span></div>
+      <div class="gl"><span class="sig">EAC</span><span class="mean">Espaço Aéreo Condicionado — áreas restritas, proibidas e perigosas.</span></div>
+      <div class="gl"><span class="sig">FRZ</span><span class="mean">Zona de Restrição de Voo — aeroportos, helipontos e áreas de segurança.</span></div>
+      <div class="gl"><span class="sig">RTH</span><span class="mean">Return to Home — retorno automático ao ponto de decolagem.</span></div>
+      <div class="gl"><span class="sig">C2</span><span class="mean">Enlace de Comando e Controle entre o piloto e a UA.</span></div>
+      <div class="gl"><span class="sig">RETA</span><span class="mean">Seguro de danos a terceiros, obrigatório no uso não recreativo.</span></div>
     </div>
   </div>
 </section>

@@ -30,7 +30,7 @@
 <style>
 :root{
   --clay:#C05A2E;--clay-dk:#8C3E1A;--sand:#E8D5B7;--sand-lt:#F5EDE0;
-  --forest:#3A5A40;--forest-lt:#4E7A56;--earth:#1E1510;--earth-md:#2E2016;
+  --forest:#3A5A40;--forest-lt:#4E7A56;--earth:#1E1510;--earth-md:#2E2016;--earth-dk:#160F0A;
   --earth-lt:#3D2E1E;--muted:#8A7260;--white:#FFFFFF;
   --accent:#E8622A;--amazon:#F0A500;--ml:#3483FA;--fpv:#9B59B6;--fpv-lt:#C39BD3;
 }
@@ -75,7 +75,7 @@ section{position:relative;z-index:1}
 .sec-desc{font-size:16px;color:rgba(232,213,183,.62);line-height:1.7;font-weight:300}
 
 /* ─ HOW ─ */
-.how{padding:90px 48px;background:var(--earth-md)}
+.how{padding:90px 48px;background:var(--earth)}
 .how-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .steps{margin-top:32px;display:flex;flex-direction:column;gap:22px}
 .step{display:flex;gap:16px;align-items:flex-start}
@@ -90,7 +90,7 @@ section{position:relative;z-index:1}
 .mini-val{font-weight:600;color:var(--sand);font-size:14px}
 
 /* ─ QUIZ ─ */
-#quiz{padding:90px 48px;background:var(--earth);min-height:70vh;display:flex;align-items:center}
+#quiz{padding:90px 48px;background:var(--earth-dk);min-height:70vh;display:flex;align-items:center}
 .quiz-wrap{max-width:700px;margin:0 auto;width:100%}
 .quiz-header{margin-bottom:40px}
 .quiz-progress{display:flex;gap:5px;margin-bottom:30px}
@@ -224,7 +224,7 @@ section{position:relative;z-index:1}
 .btn-restart:hover{border-color:var(--sand);color:var(--sand)}
 
 /* ─ EXTRAS ─ */
-.extras{padding:90px 48px;background:var(--earth-md)}
+.extras{padding:90px 48px;background:var(--earth)}
 .extras-header{text-align:center;margin-bottom:52px}
 .extras-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;max-width:1100px;margin:0 auto}
 .extra-card{background:rgba(255,255,255,.025);border:1px solid rgba(232,213,183,.07);border-radius:14px;padding:26px;transition:all .3s;display:flex;flex-direction:column;gap:9px}
@@ -247,7 +247,7 @@ section{position:relative;z-index:1}
 .stat-label{font-size:12px;color:var(--muted);margin-top:2px}
 
 /* ─ FOOTER ─ */
-footer{padding:32px 48px;border-top:1px solid rgba(232,213,183,.07);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;background:var(--earth-md)}
+footer{padding:32px 48px;border-top:1px solid rgba(232,213,183,.07);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;background:var(--earth-dk)}
 .footer-brand{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:2px;color:var(--muted)}
 .footer-note{font-size:12px;color:rgba(138,114,96,.4);text-align:center;max-width:540px;line-height:1.5}
 .footer-links{display:flex;gap:16px}
@@ -407,7 +407,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(232,213,183,.07);display:flex
 .kit-tooltip-text strong{color:var(--white);font-weight:600}
 
 /* ─ KIT PERFEITO ─ */
-#kit{padding:90px 48px;background:var(--earth)}
+#kit{padding:90px 48px;background:var(--earth-dk)}
 .kit-inner{max-width:1100px;margin:0 auto}
 .kit-header{text-align:center;margin-bottom:52px}
 .kit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
@@ -439,7 +439,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(232,213,183,.07);display:flex
 .kit-link-pending{border-color:rgba(232,213,183,.2);color:var(--muted);cursor:default;opacity:.5}
 
 /* ─ VOE LEGAL ─ */
-#voelegal{padding:100px 48px;background:var(--earth-md)}
+#voelegal{padding:100px 48px;background:var(--earth-dk)}
 .voelegal-inner{max-width:1100px;margin:0 auto}
 .voelegal-header{text-align:center;margin-bottom:16px}
 .voelegal-ica{max-width:760px;margin:0 auto 52px;background:rgba(58,90,64,.12);border:1px solid rgba(58,90,64,.28);border-radius:14px;padding:28px 32px}
@@ -447,7 +447,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(232,213,183,.07);display:flex
 .voelegal-ica-text{font-size:14px;color:rgba(232,213,183,.75);line-height:1.75}
 .voelegal-ica-text strong{color:var(--sand)}
 .voelegal-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px}
-.vl-card{background:var(--earth);border:1px solid rgba(232,213,183,.09);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:10px;transition:all .3s;position:relative;overflow:hidden;flex:0 1 calc(33.333% - 14px)}
+.vl-card{background:var(--earth-md);border:1px solid rgba(232,213,183,.09);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:10px;transition:all .3s;position:relative;overflow:hidden;flex:0 1 calc(33.333% - 14px)}
 .vl-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0}
 .vl-card.green::before{background:var(--forest-lt)}
 .vl-card.clay::before{background:var(--clay)}
@@ -886,8 +886,6 @@ footer{padding:32px 48px;border-top:1px solid rgba(232,213,183,.07);display:flex
           </div>
           <div class="fpv-note"><span>💬</span><span>O drone que mais uso para projetos cinematográficos em FPV. A estabilidade do 6" com a agilidade do 5". O GPS de alta qualidade é fundamental para voos de long range com segurança.</span></div>
           <div class="fpv-links">
-            <a href="https://mais.app/TtuPD8" target="_blank" class="link-btn link-dji">🛒 Ver na Loja DJI</a>
-<div style="text-align:center;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--clay);margin-top:5px;text-transform:uppercase">🏷️ Cupom: <span style="color:var(--sand);background:rgba(192,90,46,.15);padding:1px 6px;border-radius:4px;border:1px solid rgba(192,90,46,.3)">BRENODJI</span></div>
             <a href="https://amzn.to/3RZJ5RP" target="_blank" class="link-btn link-amazon">📦 Ver na Amazon</a>
             <a href="https://meli.la/1fibYbB" target="_blank" class="link-btn link-ml">🛍️ Ver no Mercado Livre</a>
           </div>
@@ -911,7 +909,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(232,213,183,.07);display:flex
           </div>
           <div class="fpv-note"><span>💬</span><span>Para quem quer entrar no FPV sem montar nada e sem configurar nada. Propulsores protegidos, voo assistido disponível. A escolha número 1 para iniciantes no FPV.</span></div>
           <div class="fpv-links">
-            <a href="https://mais.app/TtuPD8" target="_blank" class="link-btn link-dji">🛒 Comprar na Loja DJI</a>
+            <a href="https://mais.app/aQUocg" target="_blank" class="link-btn link-dji">🛒 Comprar na Loja DJI</a>
 <div style="text-align:center;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--clay);margin-top:5px;text-transform:uppercase">🏷️ Cupom: <span style="color:var(--sand);background:rgba(192,90,46,.15);padding:1px 6px;border-radius:4px;border:1px solid rgba(192,90,46,.3)">BRENODJI</span></div>
             <a href="https://amzn.to/3RZJ5RP" target="_blank" class="link-btn link-amazon">📦 Ver na Amazon</a>
             <a href="https://meli.la/1fibYbB" target="_blank" class="link-btn link-ml">🛍️ Ver no Mercado Livre</a>
@@ -935,7 +933,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(232,213,183,.07);display:flex
           </div>
           <div class="fpv-note"><span>💬</span><span>Câmera 360 em FPV é algo inédito. Para quem quer criar conteúdo que ninguém mais consegue capturar. Investimento alto, mas diferencial enorme.</span></div>
           <div class="fpv-links">
-            <a href="https://mais.app/TtuPD8" target="_blank" class="link-btn link-dji">🛒 Comprar na Loja DJI</a>
+            <a href="https://mais.app/0vIvQX" target="_blank" class="link-btn link-dji">🛒 Comprar na Loja DJI</a>
 <div style="text-align:center;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--clay);margin-top:5px;text-transform:uppercase">🏷️ Cupom: <span style="color:var(--sand);background:rgba(192,90,46,.15);padding:1px 6px;border-radius:4px;border:1px solid rgba(192,90,46,.3)">BRENODJI</span></div>
             <a href="https://amzn.to/4x3Ky9R" target="_blank" class="link-btn link-amazon">📦 Ver na Amazon</a>
             <a href="https://meli.la/1rGSs7L" target="_blank" class="link-btn link-ml">🛍️ Ver no Mercado Livre</a>
@@ -1152,7 +1150,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(232,213,183,.07);display:flex
           <div class="kit-card-name">DJI Air 3S</div>
           <div class="kit-card-acc">Sensor 1" · f/1.8 · 4K/60fps · 45 min de voo · Profissional</div>
           <div class="kit-links">
-            <a href="https://mais.app/GYlBnR" target="_blank" rel="noopener" class="kit-link kit-link-dji">🏪 Loja DJI — Oficial BR</a>
+            <a href="https://mais.app/q5KOFX" target="_blank" rel="noopener" class="kit-link kit-link-dji">🏪 Loja DJI — Oficial BR</a>
 <div style="text-align:center;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--clay);margin-top:5px;text-transform:uppercase">🏷️ Cupom: <span style="color:var(--sand);background:rgba(192,90,46,.15);padding:1px 6px;border-radius:4px;border:1px solid rgba(192,90,46,.3)">BRENODJI</span></div>
             <a href="https://amzn.to/4uNt0NI" target="_blank" rel="noopener" class="kit-link kit-link-amz">📦 Amazon</a>
             <a href="https://meli.la/1HYbcuw" target="_blank" rel="noopener" class="kit-link kit-link-ml">🛍️ Mercado Livre</a>
@@ -1264,7 +1262,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(232,213,183,.07);display:flex
           <div class="kit-card-name">DJI Goggles 3</div>
           <div class="kit-card-acc">Compatível com O3 e O4 · Latência ~15ms · Para BOB57 e ProTek 25</div>
           <div class="kit-links">
-            <a href="https://mais.app/voRaj8" target="_blank" rel="noopener" class="kit-link kit-link-dji">🏪 Loja DJI — Oficial BR</a>
+            <a href="https://mais.app/E9yVVF" target="_blank" rel="noopener" class="kit-link kit-link-dji">🏪 Loja DJI — Oficial BR</a>
 <div style="text-align:center;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--clay);margin-top:5px;text-transform:uppercase">🏷️ Cupom: <span style="color:var(--sand);background:rgba(192,90,46,.15);padding:1px 6px;border-radius:4px;border:1px solid rgba(192,90,46,.3)">BRENODJI</span></div>
             <a href="https://meli.la/1srKWDt" target="_blank" rel="noopener" class="kit-link kit-link-ml">🛍️ Mercado Livre</a>
           </div>
@@ -1947,7 +1945,40 @@ const DRONES=[
 // O DJI Neo (Neo 1) usa foto própria, embutida em img: do drone id:"neo" e no card da vitrine (kitImgNeo1).
 
 
+// ===== CAPTURA DE LEAD ANTES DO QUIZ =====
+// Cole abaixo a URL do Web App do Google Apps Script (ver arquivo leads-apps-script.gs).
+const LEAD_WEBHOOK_URL = "COLE_AQUI_A_URL_DO_SEU_APPS_SCRIPT";
+function leadCaptured(){ try{ return localStorage.getItem('gd_lead')==='1'; }catch(e){ return false; } }
+function openLeadModal(){ var m=document.getElementById('leadModal'); if(!m){ _goToQuizReal(); return; } m.classList.add('open'); document.body.style.overflow='hidden'; setTimeout(function(){ var n=document.getElementById('leadNome'); if(n) n.focus(); },150); }
+function closeLeadModal(){ var m=document.getElementById('leadModal'); if(m) m.classList.remove('open'); document.body.style.overflow=''; }
+function _leadEmailOk(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+function maskPhone(el){ var d=el.value.replace(/\D/g,'').slice(0,11); var o=d; if(d.length>=1)o='('+d.slice(0,2); if(d.length>=3)o='('+d.slice(0,2)+') '+d.slice(2,7); if(d.length>=8)o='('+d.slice(0,2)+') '+d.slice(2,7)+'-'+d.slice(7,11); el.value=o; }
+function submitLead(){
+  var nome=document.getElementById('leadNome').value.trim();
+  var email=document.getElementById('leadEmail').value.trim();
+  var whats=document.getElementById('leadWhats').value.trim();
+  var err=document.getElementById('leadErr');
+  if(nome.length<2){ err.textContent='Digite seu nome.'; return; }
+  if(!_leadEmailOk(email)){ err.textContent='Digite um e-mail válido.'; return; }
+  if(whats.replace(/\D/g,'').length<10){ err.textContent='Digite um WhatsApp válido com DDD.'; return; }
+  err.textContent='';
+  var btn=document.getElementById('leadSubmit'); btn.disabled=true; btn.textContent='Liberando...';
+  try{
+    if(LEAD_WEBHOOK_URL && LEAD_WEBHOOK_URL.indexOf('http')===0){
+      var body=new URLSearchParams({nome:nome,email:email,whatsapp:whats,origem:'quiz-guiadedrones',data:new Date().toISOString()});
+      fetch(LEAD_WEBHOOK_URL,{method:'POST',mode:'no-cors',body:body}).catch(function(){});
+    }
+  }catch(e){}
+  try{ localStorage.setItem('gd_lead','1'); }catch(e){}
+  closeLeadModal();
+  btn.disabled=false; btn.textContent='Acessar o quiz →';
+  _goToQuizReal();
+}
 function goToQuiz(){
+  if(!leadCaptured()){ openLeadModal(); return; }
+  _goToQuizReal();
+}
+function _goToQuizReal(){
   // Reset results and FPV branch
   document.getElementById('results').style.display='none';
   document.getElementById('fpv-branch').style.display='none';
@@ -2030,10 +2061,10 @@ function continueFPV(){
         radio_note:"O Crossfire entrega range de vários km com baixa latência -- essencial mesmo em indoor para evitar dropout.",
         battery:"4S LiPo (tipicamente 650mAh--850mAh)",
         battery_note:"4S é o padrão do ProTek 25. Mais leve e ágil. Use LiPo de alta descarga (C75+).",
-        goggles_links:{dji:"https://mais.app/voRaj8", ml:"https://meli.la/1srKWDt"},
+        goggles_links:{dji:"https://mais.app/E9yVVF", ml:"https://meli.la/1srKWDt"},
         radio_links:{ali:"https://s.click.aliexpress.com/e/_c41ftkwv", ml:"https://meli.la/2pZjbdj"},
       },
-      links:{dji:"https://mais.app/TtuPD8", amazon:"https://amzn.to/3RZJ5RP", ml:"https://meli.la/1fibYbB"}
+      links:{dji:"https://mais.app/aQUocg", amazon:"https://amzn.to/3RZJ5RP", ml:"https://meli.la/1fibYbB"}
     },
     {
       name:"iFlight Chimera 5", model:"iFlight . Long Range 5\"", price:"~R$ 1.200--2.000 (kit base)",
@@ -2049,7 +2080,7 @@ function continueFPV(){
         radio_note:"Em long range o Crossfire é indispensável -- o sistema TBS aguenta distâncias que o RC2 não alcanca com a mesma confiabilidade.",
         battery:"4S LiPo (potência) ou 4S Li-Ion (autonomia)",
         battery_note:"4S LiPo para voos acrobáticos. 4S Li-Ion (ex: 21700) para maximizar o tempo de voo -- pode chegar a 25 min+.",
-        goggles_links:{dji:"https://mais.app/voRaj8", ml:"https://meli.la/1srKWDt"},
+        goggles_links:{dji:"https://mais.app/E9yVVF", ml:"https://meli.la/1srKWDt"},
         radio_links:{ali:"https://s.click.aliexpress.com/e/_c41ftkwv", ml:"https://meli.la/2pZjbdj"},
       },
       links:{dji:"https://shop.iflight.com/index.php?route=product%2Fsearch&search=chimera+5", amazon:"https://amzn.to/3RZJ5RP", ml:"https://meli.la/1fibYbB"}
@@ -2068,7 +2099,7 @@ function continueFPV(){
         radio_note:"No BOB57 o Crossfire e fundamental. Para DIVEs em montanhas e voos de long range, o sistema TBS é o mais confiável do mercado -- latência baixíssima e range de dezenas de km.",
         battery:"6S LiPo (1100mAh--1500mAh)",
         battery_note:"O BOB57 roda em 6S -- entrega mais torque e controle do que 4S. Use LiPo de alta descarga (C75+) para aproveitar ao maximo.",
-        goggles_links:{dji:"https://mais.app/voRaj8", ml:"https://meli.la/1srKWDt"},
+        goggles_links:{dji:"https://mais.app/E9yVVF", ml:"https://meli.la/1srKWDt"},
         radio_links:{ali:"https://s.click.aliexpress.com/e/_c41ftkwv", ml:"https://meli.la/2pZjbdj"},
       },
       links:{dji:"https://shop.iflight.com/BOB57-Cinematic-6S-HD-", amazon:"https://amzn.to/3RZJ5RP", ml:"https://meli.la/1fibYbB"}
@@ -2158,8 +2189,7 @@ function continueFPV(){
         ${kitHTML}
         <div class="drone-links" style="margin-top:14px">
           <a href="${d.links.dji}" target="_blank" class="link-btn link-dji"> Comprar drone</a>
-          <div style=\"text-align:center;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--clay);margin-top:5px;text-transform:uppercase\"> Cupom: <span style=\"color:var(--sand);background:rgba(192,90,46,.15);padding:1px 6px;border-radius:4px;border:1px solid rgba(192,90,46,.3)\">BRENODJI</span></div>
-          <div style=\"text-align:center;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--clay);margin-top:5px;text-transform:uppercase\"> Cupom: <span style=\"color:var(--sand);background:rgba(192,90,46,.15);padding:1px 6px;border-radius:4px;border:1px solid rgba(192,90,46,.3)\">BRENODJI</span></div>
+          ${d.links.dji.includes('mais.app')?`<div style=\"text-align:center;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--clay);margin-top:5px;text-transform:uppercase\"> Cupom: <span style=\"color:var(--sand);background:rgba(192,90,46,.15);padding:1px 6px;border-radius:4px;border:1px solid rgba(192,90,46,.3)\">BRENODJI</span></div>`:''}
           <a href="${d.links.amazon}" target="_blank" class="link-btn link-amazon"> Amazon</a>
           <a href="${d.links.ml}" target="_blank" class="link-btn link-ml"> Mercado Livre</a>
         </div>
@@ -2388,16 +2418,16 @@ function restart(){
   const DRONE_LINKS={
     "neo2":{loja:"https://mais.app/voRaj8",nome:"DJI Neo 2",cupom:true},
     "neo":{loja:"https://meli.la/1UYedJP",nome:"DJI Neo",cupom:false,lojaTxt:"🏪 Ver no Mercado Livre →"},
-    "mini3":{loja:"https://mais.app/4LkXc4",nome:"DJI Mini 3",cupom:true},
-    "mini4pro":{loja:"https://mais.app/4LkXc4",nome:"DJI Mini 4 Pro",cupom:true},
+    "mini3":{loja:"https://mais.app/dmvCoG",nome:"DJI Mini 3",cupom:true},
+    "mini4pro":{loja:"https://mais.app/aBFcit",nome:"DJI Mini 4 Pro",cupom:true},
     "mini5pro":{loja:"https://mais.app/4LkXc4",nome:"DJI Mini 5 Pro",cupom:true},
     "flip":{loja:"https://mais.app/4LkXc4",nome:"DJI Flip",cupom:true},
     "lito1":{loja:"https://mais.app/4LkXc4",nome:"DJI Lito 1",cupom:true},
     "litox1":{loja:"https://mais.app/4LkXc4",nome:"DJI Lito X1",cupom:true},
-    "air3s":{loja:"https://mais.app/GYlBnR",nome:"DJI Air 3S",cupom:true},
+    "air3s":{loja:"https://mais.app/q5KOFX",nome:"DJI Air 3S",cupom:true},
     "mavic4pro":{loja:"https://mais.app/GYlBnR",nome:"DJI Mavic 4 Pro",cupom:true},
-    "avata2":{loja:"https://mais.app/voRaj8",nome:"DJI Avata 2",cupom:true},
-    "avata360":{loja:"https://mais.app/voRaj8",nome:"DJI Avata 360",cupom:true},
+    "avata2":{loja:"https://mais.app/aQUocg",nome:"DJI Avata 2",cupom:true},
+    "avata360":{loja:"https://mais.app/0vIvQX",nome:"DJI Avata 360",cupom:true},
     "protek25":{loja:"https://mais.app/TtuPD8",nome:"iFlight ProTek 25",cupom:true},
     "chimera5":{loja:"https://shop.iflight.com/index.php?route=product%2Fsearch&search=chimera+5",nome:"iFlight Chimera 5",cupom:false},
     "bob57":{loja:"https://shop.iflight.com/BOB57-Cinematic-6S-HD-",nome:"iFlight BOB57",cupom:false},
@@ -2752,5 +2782,53 @@ function closeMenu(){
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
 </script>
+<style>
+.lead-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(10,7,5,.82);backdrop-filter:blur(4px)}
+.lead-modal.open{display:flex}
+.lead-box{position:relative;width:100%;max-width:420px;background:var(--earth-md,#2E2016);border:1px solid rgba(224,179,65,.35);border-radius:18px;padding:30px 26px;box-shadow:0 24px 70px rgba(0,0,0,.6);animation:leadUp .25s ease}
+.lead-box::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:18px 18px 0 0;background:#E0B341}
+@keyframes leadUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.lead-x{position:absolute;top:12px;right:14px;background:none;border:none;color:var(--muted,#9a8a78);font-size:22px;cursor:pointer;line-height:1;padding:4px}
+.lead-x:hover{color:var(--sand,#E8D5B7)}
+.lead-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#E0B341;background:rgba(224,179,65,.12);border:1px solid rgba(224,179,65,.3);padding:4px 10px;border-radius:20px;margin-bottom:12px}
+.lead-title{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:1px;color:var(--white,#fff);line-height:1;margin:0 0 8px}
+.lead-sub{font-size:13.5px;line-height:1.5;color:var(--muted,#b8a991);margin:0 0 18px}
+.lead-field{margin-bottom:13px}
+.lead-field label{display:block;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--sand,#E8D5B7);margin-bottom:5px}
+.lead-field input{width:100%;box-sizing:border-box;background:rgba(0,0,0,.28);border:1px solid rgba(232,213,183,.18);border-radius:10px;padding:12px 14px;font-size:15px;color:var(--white,#fff);font-family:'DM Sans',sans-serif;transition:border-color .2s}
+.lead-field input::placeholder{color:rgba(232,213,183,.35)}
+.lead-field input:focus{outline:none;border-color:#E0B341;box-shadow:0 0 0 3px rgba(224,179,65,.12)}
+.lead-err{min-height:16px;font-size:12px;color:#ff8a6a;margin:2px 0 8px}
+.lead-btn{width:100%;background:#E0B341;color:#231a0e;border:none;border-radius:11px;padding:14px;font-size:15px;font-weight:800;letter-spacing:.4px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:filter .2s,transform .1s}
+.lead-btn:hover{filter:brightness(1.07)}
+.lead-btn:active{transform:translateY(1px)}
+.lead-btn:disabled{opacity:.6;cursor:default}
+.lead-priv{text-align:center;font-size:11px;color:var(--muted,#9a8a78);margin-top:12px}
+</style>
+<!-- ===== CAIXA DE LEAD (antes do quiz) ===== -->
+<div id="leadModal" class="lead-modal" role="dialog" aria-modal="true" aria-labelledby="leadTitle">
+  <div class="lead-box">
+    <button class="lead-x" onclick="closeLeadModal()" aria-label="Fechar">×</button>
+    <div class="lead-badge">🎁 Guia + Quiz gratuitos</div>
+    <h3 id="leadTitle" class="lead-title">Antes de começar o quiz</h3>
+    <p class="lead-sub">Preencha pra liberar o quiz e receber a recomendação do seu drone ideal — além de dicas e novidades direto do Guia de Drones.</p>
+    <div class="lead-field">
+      <label for="leadNome">Nome</label>
+      <input id="leadNome" type="text" autocomplete="name" placeholder="Seu nome">
+    </div>
+    <div class="lead-field">
+      <label for="leadEmail">E-mail</label>
+      <input id="leadEmail" type="email" autocomplete="email" placeholder="voce@email.com">
+    </div>
+    <div class="lead-field">
+      <label for="leadWhats">WhatsApp</label>
+      <input id="leadWhats" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(21) 99999-9999" oninput="maskPhone(this)">
+    </div>
+    <div id="leadErr" class="lead-err"></div>
+    <button id="leadSubmit" class="lead-btn" onclick="submitLead()">Acessar o quiz →</button>
+    <div class="lead-priv">🔒 Seus dados ficam só com o Breno. Sem spam.</div>
+  </div>
+</div>
+
 </body>
 </html>

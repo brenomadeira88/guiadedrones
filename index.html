@@ -1947,7 +1947,7 @@ const DRONES=[
 
 // ===== CAPTURA DE LEAD ANTES DO QUIZ =====
 // Cole abaixo a URL do Web App do Google Apps Script (ver arquivo leads-apps-script.gs).
-const LEAD_WEBHOOK_URL = "COLE_AQUI_A_URL_DO_SEU_APPS_SCRIPT";
+const LEAD_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbxoGC10wje-AyU2Acy9-jsVwGYlwrFcUbHJbMe3yPABvrnj3ZqcecF9l7YcpDTG72ip/exec";
 function leadCaptured(){ try{ return localStorage.getItem('gd_lead')==='1'; }catch(e){ return false; } }
 function openLeadModal(){ var m=document.getElementById('leadModal'); if(!m){ _goToQuizReal(); return; } m.classList.add('open'); document.body.style.overflow='hidden'; setTimeout(function(){ var n=document.getElementById('leadNome'); if(n) n.focus(); },150); }
 function closeLeadModal(){ var m=document.getElementById('leadModal'); if(m) m.classList.remove('open'); document.body.style.overflow=''; }

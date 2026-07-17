@@ -90,7 +90,7 @@ section{position:relative;z-index:1}
 .mini-val{font-weight:600;color:var(--sand);font-size:14px}
 
 /* ─ QUIZ ─ */
-#quiz{padding:90px 48px;background:var(--earth-dk);min-height:70vh;display:flex;align-items:center}
+#quiz{padding:90px 48px;background:var(--earth-dk);min-height:70vh;display:none;align-items:center}#quiz.show{display:flex}
 .quiz-wrap{max-width:700px;margin:0 auto;width:100%}
 .quiz-header{margin-bottom:40px}
 .quiz-progress{display:flex;gap:5px;margin-bottom:30px}
@@ -584,6 +584,23 @@ footer{padding:32px 48px;border-top:1px solid rgba(232,213,183,.07);display:flex
 .mobile-menu .mobile-menu-cta:hover{background:var(--clay-dk)}
 @media(max-width:768px){.menu-toggle{display:flex}}
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '4305233076398257');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=4305233076398257&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -603,11 +620,10 @@ footer{padding:32px 48px;border-top:1px solid rgba(232,213,183,.07);display:flex
   <nav>
     <a href="#como-funciona" style="color:var(--sand)">Como funciona</a>
     <a href="#kit">Meu Kit</a>
-    <a href="#consultor" style="color:var(--sand)">Consultor IA</a>
+    <a href="#consultor" style="color:var(--sand)">Consultor</a>
     <a href="#voelegal">Voe Legal</a>
     <a href="#cursos" style="color:var(--sand)">Cursos</a>
     <a href="#sobre">Sobre</a>
-    <button onclick="goToQuiz()" class="nav-cta" style="cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;border:none">Encontrar meu drone</button>
   </nav>
   <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -620,10 +636,9 @@ footer{padding:32px 48px;border-top:1px solid rgba(232,213,183,.07);display:flex
   <a href="#como-funciona" onclick="closeMenu()">Como funciona</a>
   <a href="#sobre" onclick="closeMenu()">Quem recomenda</a>
   <a href="#kit" onclick="closeMenu()">Meu Kit</a>
-  <a href="#consultor" onclick="closeMenu()">Consultor IA</a>
+  <a href="#consultor" onclick="closeMenu()">Consultor</a>
   <a href="#voelegal" onclick="closeMenu()">Voe Legal</a>
   <a href="#cursos" onclick="closeMenu()">Cursos</a>
-  <button class="mobile-menu-cta" onclick="closeMenu();goToQuiz()">Encontrar meu drone</button>
 </nav>
 
 <!-- HERO -->
@@ -1335,7 +1350,7 @@ footer{padding:32px 48px;border-top:1px solid rgba(232,213,183,.07);display:flex
   <div class="consultor-inner">
     <div class="consultor-glow">
     <div class="consultor-header">
-      <div class="sec-label">💡 Consultor com Inteligência Artificial</div>
+      <div class="sec-label">💡 Consultor de drone por Breno Madeira</div>
       <h2 class="sec-title">Esse drone é<br><em style="font-family:'DM Serif Display',serif;font-style:italic;color:var(--clay)">certo para você?</em></h2>
       <p class="sec-desc" style="max-width:500px;margin:12px auto 0">
         Já pesquisou e tem um modelo em mente, mas ainda tem dúvidas?
@@ -1979,6 +1994,8 @@ function goToQuiz(){
   _goToQuizReal();
 }
 function _goToQuizReal(){
+  // Mostrar quiz
+  document.getElementById('quiz').classList.add('show');
   // Reset results and FPV branch
   document.getElementById('results').style.display='none';
   document.getElementById('fpv-branch').style.display='none';

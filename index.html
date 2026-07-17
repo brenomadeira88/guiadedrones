@@ -584,23 +584,6 @@ footer{padding:32px 48px;border-top:1px solid rgba(232,213,183,.07);display:flex
 .mobile-menu .mobile-menu-cta:hover{background:var(--clay-dk)}
 @media(max-width:768px){.menu-toggle{display:flex}}
 </style>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '4305233076398257');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=4305233076398257&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -620,10 +603,11 @@ src="https://www.facebook.com/tr?id=4305233076398257&ev=PageView&noscript=1"
   <nav>
     <a href="#como-funciona" style="color:var(--sand)">Como funciona</a>
     <a href="#kit">Meu Kit</a>
-    <a href="#consultor" style="color:var(--sand)">Consultor</a>
+    <a href="#consultor" style="color:var(--sand)">Consultor IA</a>
     <a href="#voelegal">Voe Legal</a>
     <a href="#cursos" style="color:var(--sand)">Cursos</a>
     <a href="#sobre">Sobre</a>
+    <button onclick="goToQuiz()" class="nav-cta" style="cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;border:none">Encontrar meu drone</button>
   </nav>
   <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -636,9 +620,10 @@ src="https://www.facebook.com/tr?id=4305233076398257&ev=PageView&noscript=1"
   <a href="#como-funciona" onclick="closeMenu()">Como funciona</a>
   <a href="#sobre" onclick="closeMenu()">Quem recomenda</a>
   <a href="#kit" onclick="closeMenu()">Meu Kit</a>
-  <a href="#consultor" onclick="closeMenu()">Consultor</a>
+  <a href="#consultor" onclick="closeMenu()">Consultor IA</a>
   <a href="#voelegal" onclick="closeMenu()">Voe Legal</a>
   <a href="#cursos" onclick="closeMenu()">Cursos</a>
+  <button class="mobile-menu-cta" onclick="closeMenu();goToQuiz()">Encontrar meu drone</button>
 </nav>
 
 <!-- HERO -->
@@ -1962,7 +1947,7 @@ const DRONES=[
 
 // ===== CAPTURA DE LEAD ANTES DO QUIZ =====
 // Cole abaixo a URL do Web App do Google Apps Script (ver arquivo leads-apps-script.gs).
-const LEAD_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbxoGC10wje-AyU2Acy9-jsVwGYlwrFcUbHJbMe3yPABvrnj3ZqcecF9l7YcpDTG72ip/exec";
+const LEAD_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbx-sN0bTphDoOfacEI6NK6wacoMMLCjEUTvPmHQ4rsmrHS9L7rm1BGJUVqaULCXdykoew/exec";
 function leadCaptured(){ try{ return localStorage.getItem('gd_lead')==='1'; }catch(e){ return false; } }
 function openLeadModal(){ var m=document.getElementById('leadModal'); if(!m){ _goToQuizReal(); return; } m.classList.add('open'); document.body.style.overflow='hidden'; setTimeout(function(){ var n=document.getElementById('leadNome'); if(n) n.focus(); },150); }
 function closeLeadModal(){ var m=document.getElementById('leadModal'); if(m) m.classList.remove('open'); document.body.style.overflow=''; }
@@ -1971,18 +1956,16 @@ function maskPhone(el){ var d=el.value.replace(/\D/g,'').slice(0,11); var o=d; i
 function submitLead(){
   var nome=document.getElementById('leadNome').value.trim();
   var email=document.getElementById('leadEmail').value.trim();
-  var instagram=document.getElementById('leadInstagram').value.trim();
   var whats=document.getElementById('leadWhats').value.trim();
   var err=document.getElementById('leadErr');
   if(nome.length<2){ err.textContent='Digite seu nome.'; return; }
   if(!_leadEmailOk(email)){ err.textContent='Digite um e-mail válido.'; return; }
-  if(instagram.length<1){ err.textContent='Digite seu nome no Instagram.'; return; }
   if(whats.replace(/\D/g,'').length<10){ err.textContent='Digite um WhatsApp válido com DDD.'; return; }
   err.textContent='';
   var btn=document.getElementById('leadSubmit'); btn.disabled=true; btn.textContent='Liberando...';
   try{
     if(LEAD_WEBHOOK_URL && LEAD_WEBHOOK_URL.indexOf('http')===0){
-      var body=new URLSearchParams({nome:nome,email:email,instagram:instagram,whatsapp:whats,origem:'quiz-guiadedrones',data:new Date().toISOString()});
+      var body=new URLSearchParams({nome:nome,email:email,whatsapp:whats,origem:'quiz-guiadedrones',data:new Date().toISOString()});
       fetch(LEAD_WEBHOOK_URL,{method:'POST',mode:'no-cors',body:body}).catch(function(){});
     }
   }catch(e){}
@@ -2828,7 +2811,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     <button class="lead-x" onclick="closeLeadModal()" aria-label="Fechar">×</button>
     <div class="lead-badge">🎁 Guia + Quiz gratuitos</div>
     <h3 id="leadTitle" class="lead-title">Antes de começar o quiz</h3>
-    <p class="lead-sub">Preencha pra liberar o quiz e descobrir o drone perfeito para você — com cupom exclusivo de desconto!</p>
+    <p class="lead-sub">Preencha pra liberar o quiz e receber a recomendação do seu drone ideal — além de dicas e novidades direto do Guia de Drones.</p>
     <div class="lead-field">
       <label for="leadNome">Nome</label>
       <input id="leadNome" type="text" autocomplete="name" placeholder="Seu nome">
@@ -2836,10 +2819,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     <div class="lead-field">
       <label for="leadEmail">E-mail</label>
       <input id="leadEmail" type="email" autocomplete="email" placeholder="voce@email.com">
-    </div>
-    <div class="lead-field">
-      <label for="leadInstagram">Nome no Instagram</label>
-      <input id="leadInstagram" type="text" placeholder="@seu.usuario" autocomplete="off">
     </div>
     <div class="lead-field">
       <label for="leadWhats">WhatsApp</label>
